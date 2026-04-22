@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JANTIX — Southwest Events</title>
+<meta name="description" content="Jantix Events — elevated, secured, all-black parties across Tucson, Phoenix, San Diego, Los Angeles, and SoCal. It's not just a party, it's who you meet there.">
+<meta name="theme-color" content="#060409">
+<meta property="og:title" content="Jantix Events">
+<meta property="og:description" content="It's not just a party — it's who you meet there. All Black. $15. Professional security. Tucson · Phoenix · San Diego · LA · SoCal.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jantix Events">
+<meta name="twitter:description" content="It's not just a party — it's who you meet there.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#060409;--panel:#120c15;--border:rgba(255,255,255,0.07);--border-glow:rgba(255,180,80,0.35);
+  --gold:#f0b44a;--gold-light:#ffd980;--gold-dim:#a07830;--cream:#f5ede0;--muted:#9a8a7a;--faint:#5a4e46;--red:#e84c6a;--r:28px;
+  --font-display:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--font-italic:'Playfair Display',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:var(--font-body);overflow-x:hidden;line-height:1.6}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px;mix-blend-mode:overlay}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+[hidden]{display:none!important}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease}
+nav.scrolled{background:rgba(6,4,9,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:.9rem 3rem}
+.nav-logo{font-family:var(--font-display);font-size:2rem;letter-spacing:.12em;color:var(--gold);line-height:1;cursor:pointer}
+.nav-logo span{color:var(--cream)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:.88rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{background:var(--gold);color:var(--black);border:none;padding:.7rem 1.6rem;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:.88rem;cursor:pointer;transition:all .2s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(240,180,74,0.18),transparent 60%),radial-gradient(ellipse 60% 80% at 20% 80%,rgba(232,76,106,0.12),transparent 55%),radial-gradient(ellipse 100% 100% at 50% 50%,rgba(14,10,18,0.4),var(--black) 70%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);animation:pulse 8s ease-in-out infinite}
+.hero-orb-1{width:500px;height:500px;right:-100px;top:-100px;background:radial-gradient(circle,rgba(240,180,74,0.22),transparent 70%)}
+.hero-orb-2{width:400px;height:400px;left:-80px;bottom:50px;background:radial-gradient(circle,rgba(232,76,106,0.18),transparent 70%);animation-delay:-3s}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:1}}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:7rem 3rem 4rem;gap:2rem}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hero-eyebrow::before{content:'';width:2rem;height:1px;background:var(--gold)}
+.hero-headline{font-family:var(--font-display);font-size:clamp(5rem,10vw,9.5rem);line-height:.88;letter-spacing:.02em}
+.hero-headline em{font-family:var(--font-italic);color:var(--gold);font-size:.6em;line-height:1.1;display:block;letter-spacing:0}
+.hero-sub{color:var(--muted);font-size:1.05rem;max-width:38ch;font-weight:300;line-height:1.75}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:.92rem;cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-primary{background:var(--gold);color:var(--black)}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 20px 40px rgba(240,180,74,0.3)}
+.btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--border-glow)}
+.btn-ghost:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}
+.btn-sm{padding:.65rem 1.2rem;font-size:.82rem}
+.hero-cities{display:flex;gap:.6rem;flex-wrap:wrap}
+.city-tag{padding:.4rem .85rem;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--muted);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;padding:7rem 3rem 4rem 1rem}
+.featured-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;width:100%;max-width:400px;margin:0 auto;box-shadow:0 40px 80px rgba(0,0,0,.6)}
+.featured-card-poster{position:relative;aspect-ratio:3/4;overflow:hidden}
+.featured-card-poster svg{width:100%;height:100%;display:block}
+.featured-card-badge{position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--black);padding:.3rem .85rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.featured-card-body{padding:1.4rem}
+.featured-card-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem}
+.meta-chip{padding:.3rem .7rem;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-size:.75rem}
+.featured-card-title{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.04em;line-height:.95;margin-bottom:.6rem}
+.featured-card-desc{color:var(--muted);font-size:.88rem;line-height:1.65;margin-bottom:1.2rem}
+.featured-card-footer{display:flex;gap:.75rem}
+
+.ticker-wrap{overflow:hidden;background:var(--gold);padding:.65rem 0;position:relative;z-index:5}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
+.ticker-item{padding:0 2rem;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.18em;color:var(--black);display:flex;align-items:center;gap:1.5rem}
+.ticker-dot{width:5px;height:5px;border-radius:50%;background:rgba(0,0,0,.35)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+section{padding:clamp(4rem,8vw,8rem) 3rem}
+.section-label{display:flex;align-items:center;gap:.75rem;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.2rem}
+.section-label::before{content:'';width:1.5rem;height:1px;background:var(--gold)}
+h2.section-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,6rem);line-height:.9;letter-spacing:.02em;margin-bottom:.5rem}
+.section-split{display:flex;align-items:end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.section-split p{color:var(--muted);max-width:42ch;font-weight:300}
+
+.filters{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{padding:.55rem 1.1rem;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font-body);font-weight:500;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--border-glow);color:var(--cream)}
+.filter-btn.active{background:var(--gold);color:var(--black);border-color:var(--gold);font-weight:700}
+
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.event-card{background:var(--panel);border:1px solid var(--border);border-radius:24px;overflow:hidden;transition:all .3s;cursor:pointer}
+.event-card:hover{transform:translateY(-6px);border-color:rgba(240,180,74,.3);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.event-card.spotlight{border-color:rgba(240,180,74,.55);box-shadow:0 0 0 1px rgba(240,180,74,.12),0 30px 60px rgba(0,0,0,.5)}
+.event-art{aspect-ratio:1;overflow:hidden;position:relative}
+.event-art svg{width:100%;height:100%;display:block;transition:transform .6s}
+.event-card:hover .event-art svg{transform:scale(1.04)}
+.event-badge{position:absolute;top:.85rem;right:.85rem;background:rgba(6,4,9,.75);backdrop-filter:blur(8px);border:1px solid var(--border-glow);color:var(--gold);padding:.28rem .7rem;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.event-body{padding:1.2rem}
+.event-city-date{color:var(--muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.45rem;display:flex;gap:.5rem}
+.event-city-date span:first-child{color:var(--gold-dim)}
+.event-name{font-family:var(--font-display);font-size:1.65rem;letter-spacing:.03em;line-height:.95;margin-bottom:.55rem}
+.event-venue{color:var(--muted);font-size:.85rem;margin-bottom:.9rem}
+.event-footer{display:flex;align-items:center;justify-content:space-between}
+.event-price{font-weight:700;color:var(--gold-light);font-size:.92rem}
+.event-cta{padding:.5rem 1rem;border-radius:999px;background:rgba(240,180,74,.1);border:1px solid rgba(240,180,74,.3);color:var(--gold);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
+.event-cta:hover{background:var(--gold);color:var(--black)}
+.empty-state{grid-column:1/-1;text-align:center;padding:4rem;color:var(--muted)}
+
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.pkg-card{border-radius:24px;border:1px solid var(--border);background:var(--panel);padding:2rem;position:relative;transition:all .3s;overflow:hidden}
+.pkg-card:hover{transform:translateY(-4px);border-color:rgba(240,180,74,.3)}
+.pkg-card.featured-pkg{border-color:rgba(240,180,74,.5);background:linear-gradient(160deg,rgba(240,180,74,.07),var(--panel) 50%)}
+.pkg-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(240,180,74,.12),transparent 55%);pointer-events:none}
+.pkg-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1rem;display:block}
+.pkg-name{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.04em;margin-bottom:.3rem;line-height:.95}
+.pkg-price{font-size:1.05rem;color:var(--muted);margin-bottom:1.2rem;font-weight:300}
+.pkg-desc{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:1.4rem}
+.pkg-perks{list-style:none;display:grid;gap:.55rem;margin-bottom:1.6rem}
+.pkg-perks li{display:flex;gap:.6rem;color:var(--muted);font-size:.85rem;align-items:start}
+.pkg-perks li::before{content:'◆';color:var(--gold);font-size:.5rem;margin-top:.38rem;flex-shrink:0}
+
+.mood-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.mood-card{border-radius:20px;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem;border:1px solid rgba(255,255,255,.06);transition:all .3s}
+.mood-card:hover{transform:translateY(-4px)}
+.mood-label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.5rem;font-weight:600}
+.mood-card h3{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:.95;color:#fff}
+
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.svc-card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:1.6rem;transition:all .3s}
+.svc-card:hover{border-color:rgba(240,180,74,.28);transform:translateY(-3px)}
+.svc-icon{width:3rem;height:3rem;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dim));display:grid;place-items:center;margin-bottom:1.2rem;font-family:var(--font-display);font-size:1rem;color:var(--black);font-weight:900}
+.svc-type{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600}
+.svc-name{font-family:var(--font-display);font-size:1.45rem;letter-spacing:.03em;margin-bottom:.75rem;line-height:1}
+.svc-desc{color:var(--muted);font-size:.85rem;line-height:1.7;margin-bottom:1.2rem}
+
+.faq-wrap{max-width:860px;margin:0 auto;display:grid;gap:.75rem}
+.faq-item{border:1px solid var(--border);border-radius:16px;background:var(--panel);overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:rgba(240,180,74,.3)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.4rem;cursor:pointer;font-weight:600;font-size:.98rem;user-select:none;transition:color .2s}
+.faq-q:hover{color:var(--gold)}
+.faq-icon{width:1.8rem;height:1.8rem;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--gold);font-size:1rem;flex-shrink:0;transition:transform .3s,background .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(240,180,74,.1)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a-inner{padding:0 1.4rem 1.25rem;color:var(--muted);font-size:.9rem;line-height:1.75}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:1.5rem;align-items:start}
+.contact-info{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;position:relative;overflow:hidden}
+.contact-info::before{content:'';position:absolute;bottom:-40%;right:-20%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(240,180,74,.15),transparent 70%);pointer-events:none}
+.contact-info h3{font-family:var(--font-display);font-size:3rem;letter-spacing:.04em;line-height:.92;margin-bottom:1rem}
+.contact-info>p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:2rem}
+.contact-facts{display:grid;gap:.85rem}
+.contact-fact{border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;background:rgba(255,255,255,.02)}
+.fact-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.2rem;display:block}
+.fact-val{color:var(--muted);font-size:.88rem}
+.social-row{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.5rem}
+.social-link{padding:.5rem 1rem;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-size:.8rem;font-weight:500;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.social-link:hover{border-color:var(--border-glow);color:var(--gold)}
+
+/* ===== FORM ===== */
+.contact-form-panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem;position:relative;overflow:hidden}
+.form-title{font-family:var(--font-display);font-size:2rem;letter-spacing:.05em;margin-bottom:1.6rem}
+[data-fs-success]{display:none;padding:1.2rem 1.4rem;border-radius:14px;background:rgba(78,204,169,.12);border:1px solid rgba(78,204,169,.35);color:#4ecca9;font-size:.92rem;line-height:1.6;margin-bottom:1rem}
+[data-fs-error]:not(:empty){display:block;padding:.75rem 1rem;border-radius:10px;background:rgba(232,76,106,.1);border:1px solid rgba(232,76,106,.3);color:#f09090;font-size:.82rem;margin-top:.35rem}
+[data-fs-error]:empty{display:none}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0}
+.field{display:grid;gap:.45rem;margin-bottom:1rem}
+label{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+input,select,textarea{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:.85rem 1rem;color:var(--cream);font-family:var(--font-body);font-size:.9rem;width:100%;transition:all .2s;outline:none}
+input:focus,select:focus,textarea:focus{border-color:rgba(240,180,74,.45);background:rgba(255,255,255,.06);box-shadow:0 0 0 3px rgba(240,180,74,.1)}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:rgba(232,76,106,.55)}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239a8a7a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+select option{background:var(--panel)}
+textarea{min-height:9rem;resize:vertical}
+.honeypot{display:none!important;position:absolute;opacity:0;pointer-events:none}
+.form-actions{display:flex;gap:.85rem;margin-top:1.25rem;flex-wrap:wrap}
+.btn-full{flex:1;justify-content:center}
+[data-fs-submit-btn]:disabled{opacity:.6;cursor:not-allowed;transform:none!important}
+
+footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--font-display);font-size:1.75rem;letter-spacing:.1em;color:var(--gold)}
+.footer-copy{color:var(--faint);font-size:.8rem}
+
+.floating-bar{position:fixed;bottom:1.25rem;left:50%;transform:translate(-50%,200%);z-index:90;width:min(780px,calc(100vw - 2rem));background:rgba(12,9,16,.95);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:.85rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 20px 60px rgba(0,0,0,.6);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.floating-bar.show{transform:translate(-50%,0)}
+.fb-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.fb-title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.04em;line-height:1}
+.fb-meta{font-size:.8rem;color:var(--muted)}
+.fb-btns{display:flex;gap:.65rem;flex-shrink:0}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+@media(max-width:1100px){
+  .events-grid,.packages-grid{grid-template-columns:1fr 1fr}
+  .mood-grid,.services-grid{grid-template-columns:1fr 1fr}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{display:none}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  nav{padding:.9rem 1.25rem}nav.scrolled{padding:.75rem 1.25rem}
+  .nav-links{display:none}
+  section{padding:3.5rem 1.25rem}
+  .hero-left{padding:5.5rem 1.25rem 3rem}
+  .events-grid,.packages-grid,.mood-grid,.services-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:1.5rem 1.25rem}
+  .form-actions{flex-direction:column}
+  .btn-full{width:100%}
+}
+</style>
+</head>
+<body>
+
+<nav id="site-nav">
+  <div class="nav-logo" onclick="scrollTo(0,0)">JAN<span>TIX</span></div>
+  <ul class="nav-links">
+    <li><a href="#events">Events</a></li>
+    <li><a href="#vip">VIP</a></li>
+    <li><a href="#vibes">Vibes</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get On The List</button>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Jantix Events Collective</p>
+    <h1 class="hero-headline">It's Not<br>Just A<br><em>Party.</em></h1>
+    <p class="hero-sub">It's who you meet there. Jantix throws elevated, secured, all-black events across Tucson, Phoenix, San Diego, LA, and SoCal — no messy rooms, no basic nights.</p>
+    <div class="hero-actions">
+      <a href="#events" class="btn btn-primary">Browse Events</a>
+      <a href="#vip" class="btn btn-ghost">Reserve VIP ↓</a>
+    </div>
+    <div class="hero-cities">
+      <span class="city-tag">Tucson</span><span class="city-tag">Phoenix</span>
+      <span class="city-tag">San Diego</span><span class="city-tag">Los Angeles</span><span class="city-tag">SoCal</span>
+    </div>
+  </div>
+  <div class="hero-right" id="hero-featured-wrap"></div>
+</section>
+
+<div class="ticker-wrap"><div class="ticker-track" id="ticker-track"></div></div>
+
+<section id="events">
+  <div class="section-split">
+    <div><div class="section-label">Upcoming Events</div><h2 class="section-title">THE<br>LINEUP</h2></div>
+    <p>All Black dress code. Real security. Curated crowd. Every Jantix event is designed so the room feels right from the moment you walk in.</p>
+  </div>
+  <div class="filters" id="city-filters"></div>
+  <div class="events-grid" id="events-grid"></div>
+</section>
+
+<section id="vip" style="background:linear-gradient(180deg,var(--black),rgba(18,12,21,1),var(--black))">
+  <div class="section-split">
+    <div><div class="section-label">Tables & Bottle Service</div><h2 class="section-title">VIP<br>PACKAGES</h2></div>
+    <p>Reserved sections that feel hosted, not abandoned. Built for birthdays, group celebrations, and nights that deserve a real home base.</p>
+  </div>
+  <div class="packages-grid" id="packages-grid"></div>
+</section>
+
+<section id="vibes">
+  <div class="section-split">
+    <div><div class="section-label">The Jantix Standard</div><h2 class="section-title">WHY<br>JANTIX<br>HITS</h2></div>
+    <p>No basic parties. No messy rooms. Every detail — security, dress code, crowd — is intentional.</p>
+  </div>
+  <div class="mood-grid" id="mood-grid"></div>
+</section>
+
+<section id="services" style="background:linear-gradient(180deg,var(--black),rgba(16,10,19,1),var(--black))">
+  <div class="section-split">
+    <div><div class="section-label">For Hosts & Venues</div><h2 class="section-title">HOST<br>SERVICES</h2></div>
+    <p>Want Jantix to run your event? We bring the crowd, the security, and the production. You just show up.</p>
+  </div>
+  <div class="services-grid" id="services-grid"></div>
+</section>
+
+<section id="faq">
+  <div class="section-label">Before You RSVP</div>
+  <h2 class="section-title" style="margin-bottom:2.5rem;max-width:16ch">COMMON<br>QUESTIONS</h2>
+  <div class="faq-wrap" id="faq-wrap"></div>
+</section>
+
+<section id="contact" style="background:linear-gradient(180deg,var(--black),rgba(14,10,18,1) 50%,var(--black))">
+  <div class="section-label">Get On The List</div>
+  <h2 class="section-title" style="margin-bottom:2.5rem">LET'S<br>TALK</h2>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Tell us what kind of night you want.</h3>
+      <p>Use the form for guest-list requests, birthday tables, group bookings, or private event conversations. One inquiry, we handle the rest.</p>
+      <div class="contact-facts">
+        <div class="contact-fact"><span class="fact-label">Instagram</span><span class="fact-val">@jantixoffical</span></div>
+        <div class="contact-fact"><span class="fact-label">Phone / Text</span><span class="fact-val">(520) 667-7553</span></div>
+        <div class="contact-fact"><span class="fact-label">Email</span><span class="fact-val">jantixevents@gmail.com</span></div>
+        <div class="contact-fact"><span class="fact-label">Markets</span><span class="fact-val">Tucson · Phoenix · San Diego · Los Angeles · SoCal</span></div>
+      </div>
+      <div class="social-row">
+        <a href="https://instagram.com/jantixoffical" class="social-link" target="_blank">↗ @jantixoffical</a>
+        <a href="mailto:jantixevents@gmail.com" class="social-link">✉ Email Us</a>
+        <a href="sms:+15206677553" class="social-link">✆ Text Us</a>
+      </div>
+    </div>
+
+    <div class="contact-form-panel reveal d1">
+      <div class="form-title">SEND YOUR INQUIRY</div>
+
+      <div data-fs-success>
+        <div style="font-family:var(--font-display);font-size:1.6rem;letter-spacing:.05em;color:var(--gold);margin-bottom:.5rem">YOU'RE ON THE LIST 🎉</div>
+        The Jantix team got your message and will follow up with entry details, table timing, or next steps. Follow <a href="https://instagram.com/jantixoffical" style="color:var(--gold)" target="_blank">@jantixoffical</a> for updates.
+      </div>
+
+      <div data-fs-error style="margin-bottom:1rem"></div>
+
+      <form id="inquiry-form">
+        <input class="honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Jantix Inquiry">
+        <input type="hidden" name="_replyto" id="hidden-replyto">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Full Name</label>
+            <input type="text" id="f-name" name="fullName" placeholder="Your name" required data-fs-field>
+            <span data-fs-error="fullName"></span>
+          </div>
+          <div class="field">
+            <label for="f-email">Email Address</label>
+            <input type="email" id="f-email" name="email" placeholder="you@email.com" required data-fs-field>
+            <span data-fs-error="email"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-phone">Phone (optional)</label>
+            <input type="tel" id="f-phone" name="phone" placeholder="(520) 000-0000" data-fs-field>
+            <span data-fs-error="phone"></span>
+          </div>
+          <div class="field">
+            <label for="f-city">City</label>
+            <select id="f-city" name="city" required data-fs-field>
+              <option value="">Select city</option>
+              <option value="Tucson">Tucson</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="San Diego">San Diego</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="SoCal">SoCal</option>
+              <option value="Flexible">Flexible / Multi-city</option>
+            </select>
+            <span data-fs-error="city"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-type">Request Type</label>
+            <select id="f-type" name="requestType" required data-fs-field>
+              <option value="">Choose one</option>
+              <option value="Guest List / RSVP">Guest List / RSVP</option>
+              <option value="VIP Table">VIP Table</option>
+              <option value="Birthday Celebration">Birthday Celebration</option>
+              <option value="Private Event">Private Event</option>
+              <option value="Brand / Creator Night">Brand / Creator Night</option>
+            </select>
+            <span data-fs-error="requestType"></span>
+          </div>
+          <div class="field">
+            <label for="f-size">Party Size</label>
+            <select id="f-size" name="groupSize" required data-fs-field>
+              <option value="">Choose one</option>
+              <option value="1-2 guests">1–2 guests</option>
+              <option value="3-5 guests">3–5 guests</option>
+              <option value="6-10 guests">6–10 guests</option>
+              <option value="11+ guests">11+ guests</option>
+            </select>
+            <span data-fs-error="groupSize"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Tell us the vibe</label>
+          <textarea id="f-notes" name="notes" placeholder="Birthday table, guest-list RSVP, private room, group booking — anything we should know." data-fs-field></textarea>
+          <span data-fs-error="notes"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-full" data-fs-submit-btn>Send Inquiry →</button>
+          <a href="mailto:jantixevents@gmail.com" class="btn btn-ghost btn-sm">Email directly</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">JANTIX</div>
+  <p class="footer-copy">© <span id="year"></span> Jantix Events. Tucson · Phoenix · San Diego · LA · SoCal. All rights reserved.</p>
+</footer>
+
+<div class="floating-bar" id="floating-bar">
+  <div>
+    <div class="fb-label">Next Drop</div>
+    <div class="fb-title" id="fb-title">—</div>
+    <div class="fb-meta" id="fb-meta">—</div>
+  </div>
+  <div class="fb-btns">
+    <a href="#events" class="btn btn-ghost btn-sm">Browse</a>
+    <button class="btn btn-primary btn-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Access</button>
+  </div>
+</div>
+
+<!-- Formspree Ajax SDK — sends directly to jantixevents@gmail.com -->
+<script>
+  window.formspree = window.formspree || function(){(formspree.q=formspree.q||[]).push(arguments);};
+  formspree('initForm',{ formElement:'#inquiry-form', formId:'mnjlvdwg' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<script>
+// Mirror email into _replyto so you can reply directly from Gmail
+document.getElementById('f-email').addEventListener('input',function(){
+  document.getElementById('hidden-replyto').value=this.value;
+});
+
+const CONFIG={
+  email:'jantixevents@gmail.com',phone:'+15206677553',instagram:'jantixoffical',
+  cities:['All Cities','Tucson','Phoenix','San Diego','Los Angeles','SoCal'],
+};
+
+const events=[
+  {id:'jantix-tucson-1',title:'Jantix Tucson',city:'Tucson',date:'Fri, Jun 20',iso:'2026-06-20',venue:'Onyx Lounge & Events — Tucson',price:'$15',dress:'All Black',badge:'Tucson',desc:"It's not just a party — it's who you meet there. Jantix brings a secured, curated crowd so the room feels right all night.",a1:'#f0b44a',a2:'#e8845a',base:'#2a1430',glow:'#6e3055',featured:true},
+  {id:'jantix-sandiego-1',title:'Jantix San Diego',city:'San Diego',date:'Sat, Jul 19',iso:'2026-07-19',venue:'Noir Social Club — Gaslamp Quarter',price:'$15',dress:'All Black',badge:'San Diego',desc:"We got security, so it's not one of those messy parties. A curated all-black experience built around the crowd as much as the music.",a1:'#4ab8f0',a2:'#5870e8',base:'#0e1a2a',glow:'#1a3860'},
+  {id:'jantix-phoenix-1',title:'Jantix Phoenix',city:'Phoenix',date:'Sat, Aug 9',iso:'2026-08-09',venue:'The Meridian Rooftop — Downtown Phoenix',price:'$15',dress:'All Black',badge:'Phoenix',desc:"No more basic parties. Phoenix gets the full Jantix treatment — professional security, a curated 100-person room, and the kind of crowd that makes the night.",a1:'#f09a4a',a2:'#d0603a',base:'#2a1610',glow:'#7a3020'},
+  {id:'jantix-la-1',title:'Jantix Los Angeles',city:'Los Angeles',date:'Fri, Sep 5',iso:'2026-09-05',venue:'Vault 213 — West Hollywood',price:'$15',dress:'All Black',badge:'Los Angeles',desc:"LA gets its own Jantix chapter. Tight capacity, licensed security, and a room built for the right energy.",a1:'#c88af0',a2:'#7840c8',base:'#14082a',glow:'#401870'},
+  {id:'jantix-socal-1',title:'Jantix SoCal',city:'SoCal',date:'Sat, Oct 4',iso:'2026-10-04',venue:'The Lux Pavilion — Chula Vista',price:'$15',dress:'All Black',badge:'SoCal',desc:"Bringing the Jantix standard to broader SoCal. All Black, professional security, and a curated crowd.",a1:'#4af0c0',a2:'#30a080',base:'#081a14',glow:'#105038'},
+];
+
+const packages=[
+  {tag:'General Entry',name:'On The List',price:'$15 per person',desc:'Get on the guest list and skip the hassle. Faster access, curated crowd, and a room that actually feels right.',perks:['Guest-list priority entry','Secured professional door','All Black dress code enforced','Curated 100-person capacity'],req:'Guest List / RSVP'},
+  {tag:'Most Requested',name:'Birthday Table',price:'Custom quote',desc:'No more basic birthday parties. Bottle service, hosted arrival, and a room that makes the night.',perks:['Reserved VIP table section','Bottle service & host support','Birthday recognition on arrival','Priority entry for your group'],req:'Birthday Celebration',featured:true},
+  {tag:'Custom Quote',name:'Private Buyout',price:'Built to brief',desc:'Want Jantix to run a fully private event? We handle everything — venue, security, guest list, and production.',perks:['Full private event coordination','Dedicated security team','Custom guest list & door control','Brand or creator activation support'],req:'Private Event'}
+];
+
+const moods=[
+  {label:'The Crowd',title:"It's who you meet there. Every room is curated.",colors:['rgba(240,180,74,0.75)','rgba(160,90,120,0.4)','#100814']},
+  {label:'Security',title:"We got security. No messy rooms, ever.",colors:['rgba(80,130,200,0.65)','rgba(240,180,74,0.25)','#090e18']},
+  {label:'Dress Code',title:"All Black. Every event. No exceptions.",colors:['rgba(30,30,40,0.9)','rgba(240,180,74,0.3)','#0a0a0f']},
+  {label:'The Vibe',title:"No more basic parties. This is the standard.",colors:['rgba(240,180,74,0.5)','rgba(200,120,80,0.45)','#110810']}
+];
+
+const servicesData=[
+  {icon:'EV',type:'Events',name:'Event Production',desc:'Jantix handles the full event — venue coordination, guest list, security, and crowd curation so the night runs smooth.'},
+  {icon:'GL',type:'Entry',name:'Guest List Control',desc:'Faster check-in, enforced dress code, and a cleaner door. The right people get in, the wrong energy stays out.'},
+  {icon:'SC',type:'Safety',name:'Professional Security',desc:'Licensed, trained security at every Jantix event. No messy rooms, no drama — just a safe, controlled environment.'},
+  {icon:'BD',type:'Celebrations',name:'Birthday & Group Nights',desc:'Bottle service, reserved sections, and a hosted arrival your group will remember. No more basic birthday parties.'}
+];
+
+const faqData=[
+  {q:'What is the dress code?',a:'All Black — every Jantix event, every city. Non-negotiable and enforced at the door.'},
+  {q:'How do I get on the guest list?',a:"Fill out the inquiry form with your city, party size, and the event you want. Tickets are $15. We'll confirm your spot and send entry details."},
+  {q:'Is there security at every event?',a:'Yes, always. Every Jantix event has professional, licensed security. We run tight, curated rooms — not messy open parties.'},
+  {q:'Can I book a birthday table?',a:"Absolutely. Select Birthday Celebration in the form, tell us your date, city, and group size. We'll build the right package."},
+  {q:'What cities do you operate in?',a:'Currently Tucson, Phoenix, San Diego, Los Angeles, and SoCal. More cities coming soon.'},
+  {q:'What is the capacity per event?',a:'Jantix events are intentionally capped at around 100 guests. Smaller, curated rooms mean better crowd and better energy.'}
+];
+
+function posterSVG({title,city,date,a1,a2,base,glow}){
+  const id=title.replace(/\s/g,'');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><defs><linearGradient id="g${id}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${base}"/><stop offset="55%" stop-color="${glow}"/><stop offset="100%" stop-color="#06040a"/></linearGradient><radialGradient id="r${id}" cx="60%" cy="30%" r="55%"><stop offset="0%" stop-color="${a1}" stop-opacity="0.85"/><stop offset="100%" stop-color="${a2}" stop-opacity="0"/></radialGradient></defs><rect width="600" height="600" fill="url(#g${id})"/><circle cx="420" cy="160" r="200" fill="url(#r${id})"/><circle cx="100" cy="520" r="160" fill="${a2}" opacity="0.12"/><line x1="0" y1="380" x2="600" y2="320" stroke="${a1}" stroke-opacity="0.15" stroke-width="1"/><rect x="40" y="40" width="520" height="520" rx="20" fill="none" stroke="rgba(255,255,255,0.12)"/><text x="58" y="100" fill="${a1}" font-family="Bebas Neue,sans-serif" font-size="16" letter-spacing="8">${city.toUpperCase()}</text><text x="58" y="490" fill="#f5ede0" font-family="Bebas Neue,sans-serif" font-size="64" letter-spacing="2">JANTIX</text><text x="58" y="535" fill="#c8b48c" font-family="DM Sans,sans-serif" font-size="20" letter-spacing="3">${date.toUpperCase()}</text><text x="58" y="567" fill="${a1}" font-family="DM Sans,sans-serif" font-size="13" letter-spacing="8">ALL BLACK · $15 ENTRY</text></svg>`;
+}
+
+let activeCity='All Cities',spotlightId=events[0].id;
+const vis=()=>activeCity==='All Cities'?events:events.filter(e=>e.city===activeCity);
+const getSpot=()=>vis().find(e=>e.id===spotlightId)||vis()[0];
+
+function renderFilters(){
+  document.getElementById('city-filters').innerHTML=CONFIG.cities.map(c=>
+    `<button class="filter-btn${c===activeCity?' active':''}" onclick="setCity('${c}')">${c}</button>`).join('');
+}
+function renderEvents(){
+  const grid=document.getElementById('events-grid'),v=vis(),s=getSpot();
+  if(!v.length){grid.innerHTML='<div class="empty-state">No events in that city yet. <a href="#contact" style="color:var(--gold)">Send an inquiry</a> for upcoming dates.</div>';return;}
+  grid.innerHTML=v.map(e=>`
+    <div class="event-card${s&&e.id===s.id?' spotlight':''}" onclick="setSpotlight('${e.id}')">
+      <div class="event-art">${posterSVG(e)}<span class="event-badge">${e.badge}</span></div>
+      <div class="event-body">
+        <div class="event-city-date"><span>${e.city}</span><span>·</span><span>${e.date}</span></div>
+        <div class="event-name">${e.title}</div>
+        <div class="event-venue">${e.venue}</div>
+        <div class="event-footer"><span class="event-price">${e.price} entry</span>
+          <button class="event-cta" onclick="event.stopPropagation();prefill('${e.id}')">Get Access</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function renderHeroFeatured(){
+  const e=events.find(ev=>ev.featured)||events[0];
+  document.getElementById('hero-featured-wrap').innerHTML=`
+    <div class="featured-card reveal">
+      <div class="featured-card-poster">${posterSVG(e)}<span class="featured-card-badge">Next Up</span></div>
+      <div class="featured-card-body">
+        <div class="featured-card-meta"><span class="meta-chip">${e.city}</span><span class="meta-chip">${e.date}</span><span class="meta-chip">${e.dress}</span><span class="meta-chip">${e.price}</span></div>
+        <div class="featured-card-title">${e.title}</div>
+        <p class="featured-card-desc">${e.venue}</p>
+        <div class="featured-card-footer">
+          <a href="#contact" class="btn btn-primary btn-sm">Get Access</a>
+          <a href="#vip" class="btn btn-ghost btn-sm">VIP Tables</a>
+        </div>
+      </div>
+    </div>`;
+}
+function renderPackages(){
+  document.getElementById('packages-grid').innerHTML=packages.map((p,i)=>`
+    <div class="pkg-card${p.featured?' featured-pkg':''} reveal d${i}">
+      <span class="pkg-tag">${p.tag}</span><div class="pkg-name">${p.name}</div>
+      <div class="pkg-price">${p.price}</div><p class="pkg-desc">${p.desc}</p>
+      <ul class="pkg-perks">${p.perks.map(k=>`<li>${k}</li>`).join('')}</ul>
+      <button class="btn btn-primary btn-sm" onclick="prefillReq('${p.req}')">Book This</button>
+    </div>`).join('');
+}
+function renderMoods(){
+  document.getElementById('mood-grid').innerHTML=moods.map((m,i)=>`
+    <div class="mood-card reveal d${i}" style="background:radial-gradient(circle at 25% 25%,${m.colors[0]},transparent 45%),radial-gradient(circle at 75% 20%,${m.colors[1]},transparent 40%),linear-gradient(180deg,rgba(15,10,18,.2),rgba(8,5,12,.9)),${m.colors[2]}">
+      <div class="mood-label">${m.label}</div><h3>${m.title}</h3>
+    </div>`).join('');
+}
+function renderServices(){
+  document.getElementById('services-grid').innerHTML=servicesData.map((s,i)=>`
+    <div class="svc-card reveal d${i}">
+      <div class="svc-icon">${s.icon}</div><div class="svc-type">${s.type}</div>
+      <div class="svc-name">${s.name}</div><p class="svc-desc">${s.desc}</p>
+      <button class="btn btn-ghost btn-sm" onclick="prefillReq('Private Event')">Ask About This</button>
+    </div>`).join('');
+}
+function renderFaq(){
+  document.getElementById('faq-wrap').innerHTML=faqData.map((f,i)=>`
+    <div class="faq-item${i===0?' open':''}">
+      <div class="faq-q" onclick="toggleFaq(this)">${f.q}<span class="faq-icon">+</span></div>
+      <div class="faq-a" style="${i===0?'max-height:300px':''}"><div class="faq-a-inner">${f.a}</div></div>
+    </div>`).join('');
+}
+function renderTicker(){
+  const items=['Jantix Events','All Black','$15 Entry','Professional Security','Curated 100 Guests','Tucson','San Diego','Phoenix','Los Angeles','SoCal',"It's Who You Meet There",'No More Basic Parties'];
+  const t=items.map(t=>`<span class="ticker-item"><span>${t}</span><span class="ticker-dot"></span></span>`).join('');
+  document.getElementById('ticker-track').innerHTML=t+t;
+}
+function updateFloatingBar(){
+  const e=getSpot();if(!e)return;
+  document.getElementById('fb-title').textContent=e.title;
+  document.getElementById('fb-meta').textContent=`${e.city} · ${e.date} · ${e.venue.split('—')[0].trim()}`;
+}
+
+window.setCity=function(c){activeCity=c;const v=vis();if(!v.find(e=>e.id===spotlightId)&&v.length)spotlightId=v[0].id;renderFilters();renderEvents();updateFloatingBar();};
+window.setSpotlight=function(id){spotlightId=id;renderEvents();updateFloatingBar();document.getElementById('events').scrollIntoView({behavior:'smooth',block:'start'});};
+window.prefill=function(id){
+  const e=events.find(ev=>ev.id===id);if(!e)return;
+  document.getElementById('f-city').value=e.city;
+  document.getElementById('f-type').value='Guest List / RSVP';
+  document.getElementById('f-notes').value=`Interested in: ${e.title} — ${e.date} at ${e.venue}. `;
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+};
+window.prefillReq=function(req){document.getElementById('f-type').value=req;document.getElementById('contact').scrollIntoView({behavior:'smooth'});};
+window.toggleFaq=function(el){
+  const item=el.parentElement,ans=item.querySelector('.faq-a'),isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='';});
+  if(!isOpen){item.classList.add('open');ans.style.maxHeight='300px';}
+};
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('site-nav').classList.toggle('scrolled',scrollY>30);
+  document.getElementById('floating-bar').classList.toggle('show',scrollY>400&&document.getElementById('contact').getBoundingClientRect().top>window.innerHeight*.4);
+},{passive:true});
+
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+document.getElementById('year').textContent=new Date().getFullYear();
+renderHeroFeatured();renderFilters();renderEvents();renderPackages();renderMoods();renderServices();renderFaq();renderTicker();updateFloatingBar();
+setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>ro.observe(el)),100);
+</script>
+</body>
+</html>
